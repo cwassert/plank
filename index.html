@@ -1,0 +1,291 @@
+<html>
+  <head>
+  <meta charset="UTF-8">
+  <link rel="manifest" href="plank.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="plank.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#ffffff">
+  <style>
+
+    :root {
+      --alpha1: 0deg;
+      --alpha2: -12.373625116188558deg;
+      --beta1: -90deg;
+      --beta2: 0deg;
+      --gamma1: 99.594068226860458deg;
+      --gamma2: 0deg;
+      --time: 1s;
+      --fun: ease-out;
+      --offsetx1: -24.77211629518312px;
+      --offsetx2: -34.18698582794336px;
+      
+      --bannerspeed: 3s;
+    }
+
+    #lowerleg{
+        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1));
+        transition: transform var(--time) var(--fun);
+    }
+
+    .on #lowerleg{
+        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2));
+    }
+
+
+    #upperleg{
+        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1));
+        transition: transform var(--time) var(--fun);
+    }
+
+    .on #upperleg{
+        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2));
+    }
+
+    #body{
+        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1));
+        transition: transform var(--time) var(--fun);
+      }
+
+    .on #body{
+        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2));
+    }
+
+    #head{
+        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1));
+        transition: transform var(--time) var(--fun);
+    }
+
+    .on #head{
+        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2));
+    }
+
+    body {
+     margin: 0;
+     font-family: sans-serif;
+     overflow: hidden;
+     width: 100vw;
+     height: 100vh;
+     position: relative;
+    }
+
+    .button {
+      font-size: 80px;
+      cursor: pointer;
+      user-select: none;
+      text-align: center;
+      
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      border: 0 solid #eeeeee;
+      border-radius: 10px;
+      box-sizing: border-box;
+      transition: all .1s cubic-bezier(.4, 0, .2, 1);
+      box-shadow: -6px 8px 10px rgba(81,41,10,0.1),0px 2px 2px rgba(81,41,10,0.2);
+    }
+
+    .on .button {
+      box-shadow: -1px 2px 5px rgba(81,41,10,0.15),0px 1px 1px rgba(81,41,10,0.15);
+      transform: translateY(0.125rem);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .buttoncontainer {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* landscape */
+    @media (min-aspect-ratio: 1/1) {
+      .buttoncontainer {
+        width: 25%;
+      }
+      .footer-left {
+        bottom: 10px;
+        left: 10px;
+      }
+      .footer-right {
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+
+    /* portrait */
+    @media (max-aspect-ratio: 1/1) {
+      .container {
+        flex-direction: column;
+      }
+      .buttoncontainer {
+        height: 25%;
+      }
+      .footer-left {
+        bottom: 30px;
+        left: 10px;
+      }
+      .footer-right {
+        bottom: 10px;
+        left: 10px;
+      }
+    }
+
+    .banner {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      font-size: 40px;
+      white-space: nowrap;
+      transition: none;
+      transform: translateX(100vw);
+    }
+
+    .on .banner {
+      transform: translateX(-100%);
+      transition: transform 3s linear;
+    }
+
+    .banner.help {
+      transition: opacity 1s ease-in-out 2s;
+      transform: translateX(calc(50vw - 50%));
+      opacity: 100%;
+    }
+
+    .on .banner.help {
+      transition: opacity 1s ease-in-out 0s;
+      opacity: 0%;
+    }
+
+    .footer-left {
+      position: absolute;
+      font-size: 14px;
+      opacity: 0%;
+      transition: opacity 1s ease-in-out 1s;
+    }
+
+    .on .footer-left {
+      opacity: 50%;
+      transition: opacity 1s ease-in-out 5s;
+    }
+
+    .footer-right {
+      position: absolute;
+      font-size: 14px;
+      opacity: 0%;
+      transition: opacity 1s ease-in-out 3s;
+    }
+
+    .on .footer-right {
+      opacity: 50%;
+      transition: opacity 1s ease-in-out 5s;
+    }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="animationcontainer">
+
+        <svg id="svg" viewBox="-40 -20 60 30" xmlns="http://www.w3.org/2000/svg">
+          <style>
+
+          </style>
+
+          <line id="lowerleg" x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="2" stroke-linecap="round" />
+          
+          <line id="upperleg" x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="2" stroke-linecap="round" />
+          
+          <line id="body" x1="1" y1="-1" x2="15" y2="-1" stroke="black" stroke-width="4" stroke-linecap="round" />
+          
+          <circle id="head" cx="22" cy="-1" r="4" fill="black" />
+
+          <line id="upperarm" x1="0.5" y1="0" x2="0.5" y2="-7.5" stroke="black" stroke-width="1.5" stroke-linecap="round" />
+          <line id="lowerarm" x1="0.5" y1="0" x2="8" y2="0" stroke="black" stroke-width="1.5" stroke-linecap="round" />
+          
+        </svg>
+
+      </div>
+      <div class="buttoncontainer">
+        <span class="button" id="button">F</span>
+      </div>
+    </div>
+
+    <div class="banner help">Press F to plank!</div>
+    <div class="banner" style="transition-delay: 3s">You are now planking!</div>
+    <div class="banner" style="transition-delay: 15s">Good job.</div>
+    <div class="banner" style="transition-delay: 30s">You're doing great.</div>
+    <div class="banner" style="transition-delay: 60s">This app is amazing.</div>
+    <div class="banner" style="transition-delay: 90s">Get the official sound track: Daft Punk - Conflict</div>
+    <div class="banner" style="transition-delay: 300s">Ok. Time to take a break.</div>
+    <div class="banner" style="transition-delay: 330s">Dude.</div>
+    <div class="banner" style="transition-delay: 900s">What the fuck are you doing?</div>
+    <div class="footer-left" id="footer1">time planking: 0:00</div>
+    <div class="footer-right" id="footer2">total time planking: 0:00</div>
+
+    <script>
+
+      const svg = document.body; //;.getElementById('svg');
+      const button = document.getElementById('button');
+      const footer1 = document.getElementById('footer1');
+      const footer2 = document.getElementById('footer2');
+      let plankStartTime = 0;
+      let totalPlankTime = parseInt(localStorage.getItem('totalPlankTime'), 10) || 0;
+      let invertval = null;
+      
+      function update(evt){
+        if(plankStartTime>0){
+          const now = Date.now();
+          let min = Math.floor((now-plankStartTime)/60000);
+          let sec = Math.floor((now-plankStartTime)/1000%60);
+          footer1.innerText = `time planking: ${min}:${sec<10?'0'+sec:sec}`;
+          min = Math.floor((totalPlankTime+now-plankStartTime)/60000);
+          sec = Math.floor((totalPlankTime+now-plankStartTime)/1000%60);
+          footer2.innerText = `total time planking: ${min}:${sec<10?'0'+sec:sec}`;
+        }
+        else{
+          clearInterval(invertval);
+        }
+      }
+      
+      function on(evt){
+        svg.classList.add('on');
+        plankStartTime = Date.now();
+        invertval = setInterval(update, 1000);
+        evt.preventDefault();
+      }
+      
+      function off(evt){
+        svg.classList.remove('on');
+        if(plankStartTime>0){
+          totalPlankTime += Date.now() - plankStartTime;
+          plankStartTime = 0;
+          localStorage.setItem('totalPlankTime', totalPlankTime.toFixed());
+        }
+        evt.preventDefault();
+      }
+      
+      button.addEventListener('mousedown', on);
+      button.addEventListener('touchstart', on);
+      button.addEventListener('touchend', off);
+      button.addEventListener('touchcancel', off);
+      button.addEventListener('mouseup', off);
+      button.addEventListener('mouseleave', off);
+      button.addEventListener('blur', off);
+
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('serviceworker.js');
+      };
+      
+      window.addEventListener('beforeinstallprompt', e => e.prompt());
+
+    </script>
+  </body>
+</html>
+

@@ -1,0 +1,24 @@
+{
+  "name": "Plank App",
+  "short_name": "Plank App",
+  "description": "It's the App you always wanted.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color":"#ffffff",
+  "icons": [
+    {
+      "src": "plank.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "plank.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable any"
+    }
+  ]
+}
+
