@@ -2,7 +2,7 @@
   "name": "Plank App",
   "short_name": "Plank App",
   "description": "It's the App you always wanted.",
-  "start_url": "index.html",
+  "start_url": "https://cwassert.github.io/plank/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color":"#ffffff",
