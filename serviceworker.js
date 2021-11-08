@@ -1,6 +1,6 @@
 self.addEventListener('install', function(event) {
   event.waitUntil(caches.open('plank-cache').then(cache => Promise.all([
-    //cache.add('index.html'),
+    cache.add('index.html'),
     cache.add('serviceworker.js'),
     cache.add('plank.svg'),
     cache.add('plank.png')
