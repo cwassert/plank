@@ -16,47 +16,74 @@
       --gamma2: 0deg;
       --time: 1s;
       --fun: ease-out;
-      --offsetx1: -24.77211629518312px;
-      --offsetx2: -34.18698582794336px;
+      --offsetx1: 5.227883704816879px;
+      --offsetx2: -4.18698582794336px;
       
       --bannerspeed: 3s;
     }
+    
+    .bodypart {
+        position: absolute;
+        border-radius: 4px;
+        background-color: black;
+        transform-origin: 0 0;
+        top: 50%;
+        bottom: 50%;
+    }
 
-    #lowerleg{
-        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1));
+    .bodypart.lowerleg{
+        width: 12px;
+        height: 2px;
+        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(-1px,-1px) ;
         transition: transform var(--time) var(--fun);
     }
 
-    .on #lowerleg{
-        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2));
+    .on .bodypart.lowerleg{
+        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(-1px,-1px) ;
     }
 
-
-    #upperleg{
-        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1));
+    .bodypart.upperleg{
+        width: 12px;
+        height: 2px;
+        transform:  translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(-1px,-1px) ;
         transition: transform var(--time) var(--fun);
     }
 
-    .on #upperleg{
-        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2));
+    .on .bodypart.upperleg{
+        transform:  translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(-1px,-1px) ;
     }
 
-    #body{
-        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1));
+    .bodypart.body{
+        width: 18px;
+        height: 4px;
+        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(-1px,-3px) ;
         transition: transform var(--time) var(--fun);
       }
 
-    .on #body{
-        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2));
+    .on .bodypart.body{
+        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(-1px,-3px) ;
     }
 
-    #head{
-        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1));
+    .bodypart.head{
+        width: 8px;
+        height: 8px;
+        transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(18px,-5px) ;
         transition: transform var(--time) var(--fun);
     }
 
-    .on #head{
-        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2));
+    .on .bodypart.head{
+        transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(18px,-5px) ;
+    }
+
+    .bodypart.upperarm{
+        width: 1.5px;
+        height: 9px;
+        transform: translate(29.25px, -8.25px);
+    }
+    .bodypart.lowerarm{
+        width: 9px;
+        height: 1.5px;
+        transform: translate(29.25px, -.5px);
     }
 
     body {
@@ -74,7 +101,7 @@
       user-select: none;
       text-align: center;
       
-      margin: 20px;
+      margin: 80px;
       width: 100px;
       height: 100px;
       border: 0 solid #eeeeee;
@@ -103,11 +130,20 @@
       justify-content: center;
     }
 
+    .animationcontainer1 {
+      position: relative;
+      width: 300px;
+      height: 150px;
+    }
+    .animationcontainer2 {
+      position: relative;
+      transform: scale(6) translate(107px,5px);
+      top: 50%;
+      left: 50%;
+    }
+
     /* landscape */
     @media (min-aspect-ratio: 1/1) {
-      .buttoncontainer {
-        width: 25%;
-      }
       .footer-left {
         bottom: 10px;
         left: 10px;
@@ -122,9 +158,6 @@
     @media (max-aspect-ratio: 1/1) {
       .container {
         flex-direction: column;
-      }
-      .buttoncontainer {
-        height: 25%;
       }
       .footer-left {
         bottom: 30px;
@@ -191,26 +224,15 @@
   <body>
 
     <div class="container">
-      <div class="animationcontainer">
-
-        <svg id="svg" viewBox="-40 -20 60 30" xmlns="http://www.w3.org/2000/svg">
-          <style>
-
-          </style>
-
-          <line id="lowerleg" x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="2" stroke-linecap="round" />
-          
-          <line id="upperleg" x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="2" stroke-linecap="round" />
-          
-          <line id="body" x1="1" y1="-1" x2="15" y2="-1" stroke="black" stroke-width="4" stroke-linecap="round" />
-          
-          <circle id="head" cx="22" cy="-1" r="4" fill="black" />
-
-          <line id="upperarm" x1="0.5" y1="0" x2="0.5" y2="-7.5" stroke="black" stroke-width="1.5" stroke-linecap="round" />
-          <line id="lowerarm" x1="0.5" y1="0" x2="8" y2="0" stroke="black" stroke-width="1.5" stroke-linecap="round" />
-          
-        </svg>
-
+      <div class="animationcontainer1">
+        <div class="animationcontainer2">
+          <div class="bodypart lowerleg"></div>
+          <div class="bodypart upperleg"></div>
+          <div class="bodypart body"></div>
+          <div class="bodypart head"></div>
+          <div class="bodypart upperarm"></div>
+          <div class="bodypart lowerarm"></div>
+        </div>
       </div>
       <div class="buttoncontainer">
         <span class="button" id="button">F</span>
