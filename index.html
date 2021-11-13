@@ -1,10 +1,15 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
   <meta charset="UTF-8">
+  <title>Plank App</title>
   <link rel="manifest" href="plank.webmanifest">
   <link rel="icon" type="image/svg+xml" href="plank.svg">
+  <link rel="icon" type="image/png" href="plank.png">
+  <link rel="apple-touch-icon" type="image/png" href="plank.png">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="The App you have always been waiting for.">
   <style>
 
     :root {
@@ -26,6 +31,10 @@
         position: absolute;
         border-radius: 4px;
         background-color: black;
+        -webkit-transform-origin: 0 0;
+        -moz-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        -o-transform-origin: 0 0;
         transform-origin: 0 0;
         top: 50%;
         bottom: 50%;
@@ -34,55 +43,111 @@
     .bodypart.lowerleg{
         width: 12px;
         height: 2px;
+        -webkit-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(-1px,-1px) ;
+        -moz-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(-1px,-1px) ;
+        -ms-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(-1px,-1px) ;
+        -o-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(-1px,-1px) ;
         transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(-1px,-1px) ;
+        -webkit-transition: -webkit-transform var(--time) var(--fun);
+        -moz-transition: transform var(--time) var(--fun);
+        -ms-transition: transform var(--time) var(--fun);
+        -o-transition: transform var(--time) var(--fun);
         transition: transform var(--time) var(--fun);
     }
 
     .on .bodypart.lowerleg{
+        -webkit-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(-1px,-1px) ;
+        -moz-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(-1px,-1px) ;
+        -ms-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(-1px,-1px) ;
+        -o-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(-1px,-1px) ;
         transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(-1px,-1px) ;
     }
 
     .bodypart.upperleg{
         width: 12px;
         height: 2px;
+        -webkit-transform:  translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(-1px,-1px) ;
+        -moz-transform:  translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(-1px,-1px) ;
+        -ms-transform:  translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(-1px,-1px) ;
+        -o-transform:  translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(-1px,-1px) ;
         transform:  translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(-1px,-1px) ;
+        -webkit-transition: -webkit-transform var(--time) var(--fun);
+        -moz-transition: transform var(--time) var(--fun);
+        -ms-transition: transform var(--time) var(--fun);
+        -o-transition: transform var(--time) var(--fun);
         transition: transform var(--time) var(--fun);
     }
 
     .on .bodypart.upperleg{
+        -webkit-transform:  translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(-1px,-1px) ;
+        -moz-transform:  translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(-1px,-1px) ;
+        -ms-transform:  translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(-1px,-1px) ;
+        -o-transform:  translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(-1px,-1px) ;
         transform:  translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(-1px,-1px) ;
     }
 
     .bodypart.body{
         width: 18px;
         height: 4px;
+        -webkit-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(-1px,-3px) ;
+        -moz-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(-1px,-3px) ;
+        -ms-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(-1px,-3px) ;
+        -o-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(-1px,-3px) ;
         transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(-1px,-3px) ;
+        -webkit-transition: -webkit-transform var(--time) var(--fun);
+        -moz-transition: transform var(--time) var(--fun);
+        -ms-transition: transform var(--time) var(--fun);
+        -o-transition: transform var(--time) var(--fun);
         transition: transform var(--time) var(--fun);
       }
 
     .on .bodypart.body{
+        -webkit-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(-1px,-3px) ;
+        -moz-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(-1px,-3px) ;
+        -ms-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(-1px,-3px) ;
+        -o-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(-1px,-3px) ;
         transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(-1px,-3px) ;
     }
 
     .bodypart.head{
         width: 8px;
         height: 8px;
+        -webkit-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(18px,-5px) ;
+        -moz-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(18px,-5px) ;
+        -ms-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(18px,-5px) ;
+        -o-transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(18px,-5px) ;
         transform: translate(var(--offsetx1), 0) rotate(var(--alpha1)) translate(10px, 0) rotate(var(--beta1)) translate(10px, 0) rotate(var(--gamma1)) translate(18px,-5px) ;
+        -webkit-transition: -webkit-transform var(--time) var(--fun);
+        -moz-transition: transform var(--time) var(--fun);
+        -ms-transition: transform var(--time) var(--fun);
+        -o-transition: transform var(--time) var(--fun);
         transition: transform var(--time) var(--fun);
     }
 
     .on .bodypart.head{
+        -webkit-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(18px,-5px) ;
+        -moz-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(18px,-5px) ;
+        -ms-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(18px,-5px) ;
+        -o-transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(18px,-5px) ;
         transform: translate(var(--offsetx2), 0) rotate(var(--alpha2)) translate(10px, 0) rotate(var(--beta2)) translate(10px, 0) rotate(var(--gamma2)) translate(18px,-5px) ;
     }
 
     .bodypart.upperarm{
         width: 1.5px;
         height: 9px;
+        -webkit-transform: translate(29.25px, -8.25px);
+        -moz-transform: translate(29.25px, -8.25px);
+        -ms-transform: translate(29.25px, -8.25px);
+        -o-transform: translate(29.25px, -8.25px);
         transform: translate(29.25px, -8.25px);
     }
     .bodypart.lowerarm{
         width: 9px;
         height: 1.5px;
+        -webkit-transform: translate(29.25px, -.5px);
+        -moz-transform: translate(29.25px, -.5px);
+        -ms-transform: translate(29.25px, -.5px);
+        -o-transform: translate(29.25px, -.5px);
         transform: translate(29.25px, -.5px);
     }
 
@@ -98,8 +163,15 @@
     .button {
       font-size: 80px;
       cursor: pointer;
-      user-select: none;
       text-align: center;
+
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
       
       margin: 80px;
       width: 100px;
@@ -107,18 +179,26 @@
       border: 0 solid #eeeeee;
       border-radius: 10px;
       box-sizing: border-box;
+      -webkit-transition: all .1s cubic-bezier(.4, 0, .2, 1);
+      -moz-transition: all .1s cubic-bezier(.4, 0, .2, 1);
+      -ms-transition: all .1s cubic-bezier(.4, 0, .2, 1);
+      -o-transition: all .1s cubic-bezier(.4, 0, .2, 1);
       transition: all .1s cubic-bezier(.4, 0, .2, 1);
       box-shadow: -6px 8px 10px rgba(81,41,10,0.1),0px 2px 2px rgba(81,41,10,0.2);
     }
 
     .on .button {
       box-shadow: -1px 2px 5px rgba(81,41,10,0.15),0px 1px 1px rgba(81,41,10,0.15);
+      -webkit-transform: translateY(0.125rem);
+      -moz-transform: translateY(0.125rem);
+      -ms-transform: translateY(0.125rem);
+      -o-transform: translateY(0.125rem);
       transform: translateY(0.125rem);
     }
 
     .container {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       width: 100vw;
       height: 100vh;
       align-items: center;
@@ -137,36 +217,13 @@
     }
     .animationcontainer2 {
       position: relative;
+      -webkit-transform: scale(6) translate(107px,5px);
+      -moz-transform: scale(6) translate(107px,5px);
+      -ms-transform: scale(6) translate(107px,5px);
+      -o-transform: scale(6) translate(107px,5px);
       transform: scale(6) translate(107px,5px);
       top: 50%;
       left: 50%;
-    }
-
-    /* landscape */
-    @media (min-aspect-ratio: 1/1) {
-      .footer-left {
-        bottom: 10px;
-        left: 10px;
-      }
-      .footer-right {
-        bottom: 10px;
-        right: 10px;
-      }
-    }
-
-    /* portrait */
-    @media (max-aspect-ratio: 1/1) {
-      .container {
-        flex-direction: column;
-      }
-      .footer-left {
-        bottom: 30px;
-        left: 10px;
-      }
-      .footer-right {
-        bottom: 10px;
-        left: 10px;
-      }
     }
 
     .banner {
@@ -175,48 +232,113 @@
       left: 0;
       font-size: 40px;
       white-space: nowrap;
+      -webkit-transition: none;
+      -moz-transition: none;
+      -ms-transition: none;
+      -o-transition: none;
       transition: none;
+      -webkit-transform: translateX(100vw);
+      -moz-transform: translateX(100vw);
+      -ms-transform: translateX(100vw);
+      -o-transform: translateX(100vw);
       transform: translateX(100vw);
     }
 
     .on .banner {
+      -webkit-transform: translateX(-100%);
+      -moz-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      -o-transform: translateX(-100%);
       transform: translateX(-100%);
+      -webkit-transition: -webkit-transform 3s linear;
+      -moz-transition: transform 3s linear;
+      -ms-transition: transform 3s linear;
+      -o-transition: transform 3s linear;
       transition: transform 3s linear;
     }
 
     .banner.help {
+      -webkit-transition: opacity 1s ease-in-out 2s;
+      -moz-transition: opacity 1s ease-in-out 2s;
+      -ms-transition: opacity 1s ease-in-out 2s;
+      -o-transition: opacity 1s ease-in-out 2s;
       transition: opacity 1s ease-in-out 2s;
+      -webkit-transform: translateX(calc(50vw - 50%));
+      -moz-transform: translateX(calc(50vw - 50%));
+      -ms-transform: translateX(calc(50vw - 50%));
+      -o-transform: translateX(calc(50vw - 50%));
       transform: translateX(calc(50vw - 50%));
       opacity: 100%;
     }
 
     .on .banner.help {
+      -webkit-transition: opacity 1s ease-in-out 0s;
+      -moz-transition: opacity 1s ease-in-out 0s;
+      -ms-transition: opacity 1s ease-in-out 0s;
+      -o-transition: opacity 1s ease-in-out 0s;
       transition: opacity 1s ease-in-out 0s;
       opacity: 0%;
     }
 
     .footer-left {
       position: fixed;
+      bottom: 30px;
+      left: 10px;
       font-size: 14px;
       opacity: 0%;
+      -webkit-transition: opacity 1s ease-in-out 1s;
+      -moz-transition: opacity 1s ease-in-out 1s;
+      -ms-transition: opacity 1s ease-in-out 1s;
+      -o-transition: opacity 1s ease-in-out 1s;
       transition: opacity 1s ease-in-out 1s;
     }
 
     .on .footer-left {
       opacity: 50%;
+      -webkit-transition: opacity 1s ease-in-out 5s;
+      -moz-transition: opacity 1s ease-in-out 5s;
+      -ms-transition: opacity 1s ease-in-out 5s;
+      -o-transition: opacity 1s ease-in-out 5s;
       transition: opacity 1s ease-in-out 5s;
     }
 
     .footer-right {
       position: fixed;
+      bottom: 10px;
+      left: 10px;
+      right: auto;
       font-size: 14px;
       opacity: 0%;
+      -webkit-transition: opacity 1s ease-in-out 3s;
+      -moz-transition: opacity 1s ease-in-out 3s;
+      -ms-transition: opacity 1s ease-in-out 3s;
+      -o-transition: opacity 1s ease-in-out 3s;
       transition: opacity 1s ease-in-out 3s;
     }
 
     .on .footer-right {
       opacity: 50%;
+      -webkit-transition: opacity 1s ease-in-out 5s;
+      -moz-transition: opacity 1s ease-in-out 5s;
+      -ms-transition: opacity 1s ease-in-out 5s;
+      -o-transition: opacity 1s ease-in-out 5s;
       transition: opacity 1s ease-in-out 5s;
+    }
+
+    /* landscape */
+    @media (min-aspect-ratio: 1/1) {
+      .container {
+        flex-direction: row;
+      }
+      .footer-left {
+        bottom: 10px;
+        left: 10px;
+      }
+      .footer-right {
+        bottom: 10px;
+        right: 10px;
+        left: auto;
+      }
     }
 
     </style>
@@ -277,9 +399,12 @@
       }
       
       function on(evt){
-        svg.classList.add('on');
-        plankStartTime = Date.now();
-        invertval = setInterval(update, 1000);
+        if(plankStartTime===0){
+          svg.classList.add('on');
+          plankStartTime = Date.now();
+          invertval = setInterval(update, 1000);
+        }
+        evt.stopPropagation();
         evt.preventDefault();
       }
       
@@ -290,16 +415,22 @@
           plankStartTime = 0;
           localStorage.setItem('totalPlankTime', totalPlankTime.toFixed());
         }
+        evt.stopPropagation();
         evt.preventDefault();
       }
       
-      button.addEventListener('mousedown', on);
-      button.addEventListener('touchstart', on);
-      button.addEventListener('touchend', off);
-      button.addEventListener('touchcancel', off);
-      button.addEventListener('mouseup', off);
-      button.addEventListener('mouseleave', off);
-      button.addEventListener('blur', off);
+      button.addEventListener('mousedown', on, {passive: true});
+      button.addEventListener('touchstart', on, {passive: true});
+      button.addEventListener('pointerdown', on, {passive: true});
+      //button.addEventListener('dragstart', on, {passive: true});
+      button.addEventListener('touchend', off, {passive: true});
+      button.addEventListener('touchcancel', off, {passive: true});
+      button.addEventListener('mouseup', off, {passive: true});
+      button.addEventListener('mouseleave', off, {passive: true});
+      button.addEventListener('pointerup', off, {passive: true});
+      button.addEventListener('pointerleave', off, {passive: true});
+      button.addEventListener('blur', off, {passive: true});
+      //button.addEventListener('dragend', off, {passive: true});
 
       if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('serviceworker.js');

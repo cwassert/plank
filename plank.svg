@@ -1,4 +1,6 @@
-<svg viewBox="-40 -20 60 30" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="-40 -35 60 60" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="white"/>
   <g transform="translate(-34.18698582794336 0) rotate(-12.373625116188558 0 0)">
     <line id="lowerleg" x1="0" y1="0" x2="10" y2="0" stroke="black" stroke-width="2" stroke-linecap="round" />
     <line id="upperleg" x1="10" y1="0" x2="20" y2="0" stroke="black" stroke-width="2" stroke-linecap="round" />
